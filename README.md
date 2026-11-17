@@ -41,6 +41,14 @@ That's the whole flow. The author withdraws straight from the contract. Nobody i
 - **A birthday gift, crypto-style.** Your friend has a TON wallet — Telegram Wallet counts. Start a *Private campaign* with their wallet as the payout address and pass the link around the group chat. On the big day, send the birthday person the link: they connect their wallet and take the gift straight from the contract. You never touch the money.
 - **For yourself or someone close.** A vet bill, a surgery, a roof after a storm. A personal campaign works the same way — [see the flow](assets/demo/create.gif).
 
+## 🔒 Your visibility, your choice
+
+- **Give anonymously.** Choose an anonymous donation to hide your name in the campaign's donation list. It stays out of your public donation history, too.
+- **Your profile, your call.** Everyone gets an in-app profile with their campaigns and donation activity. Keep it public, or switch off **Public profile** in **Profile → Settings** to hide it from other users.
+- **Public or private campaigns.** A **public campaign** appears in the feed for everyone to discover. A **private campaign** is link-only: it stays out of the feed, public profiles and public donation histories. Pass it around your group chat — anyone with the link can open it.
+
+**Private in the app, still visible on-chain.** These settings control what HARMONY shows, not what TON records. Campaign contracts and donation transactions — including the sending wallet — remain visible on the blockchain.
+
 ## 💙 Built by its community
 
 HARMONY grows the way it helps others grow: through a campaign in the app. Its development is a fundraiser like any other — same contract, same public progress bar, same rules. No special treatment for ourselves.
@@ -78,7 +86,7 @@ you ──TON Connect / Telegram Wallet──▶ campaign contract ──withdra
 ## 🛡 Trust, not vibes
 
 - **Human moderation** for every campaign before it goes live.
-- **Identity check to raise money.** Giving never needs one — donors stay anonymous by default.
+- **Identity check to raise money.** Giving never needs one — and you can choose to donate anonymously.
 - **Trust score** on every organizer: one number a donor reads in two seconds, built from verification, history and reporting on money already received.
 - **Expense reports.** Authors who raised enough show what the money went on; skipping a report costs standing.
 
