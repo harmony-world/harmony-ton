@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+:root {
+  --tg-color-scheme: light;
+  --tg-bg-color: var(--tg-theme-bg-color, #111318);
+  --tg-text-color: #000000;
+  --tg-hint-color: #999999;
+  --tg-link-color: #2678b6;
+  --tg-button-color: #2678b6;
+  --tg-button-text-color: #ffffff;
+  --tg-secondary-bg-color: #efeff3;
+  --tg-brand-color: #2AABEE;
+  --tg-brand-color-rgb: 42, 171, 238;
+  --app-bg-color: var(--tg-theme-bg-color, #111318);
+  --app-text-color: var(--tg-theme-text-color, var(--tg-text-color, #F4F7FB));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--app-bg-color);
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--app-bg-color);
+  color: var(--app-text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  background-color: var(--app-bg-color);
+  overflow: hidden;
+}
+
+.tg-app-viewport {
+  height: var(--tg-viewport-stable-height, 100dvh);
+  min-height: 100%;
+  overflow: hidden;
+  background-color: var(--app-bg-color);
+}
+
+.tg-safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), var(--tg-safe-area-inset-bottom, 0px), 16px);
+}
+
+.input-base {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid color-mix(in srgb, var(--tg-theme-hint-color, #8E8E93) 18%, transparent);
+  border-radius: 0.75rem;
+  background: var(--tg-theme-secondary-bg-color, #f9f9f9);
+  color: var(--tg-theme-text-color, #000);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input-base:focus {
+  border-color: var(--tg-brand-color);
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes hw-pop {
+  0% { transform: scale(.4); opacity: 0; }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes hw-ring {
+  0% { transform: scale(.7); opacity: .5; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+@keyframes hw-scan {
+  0%, 100% { top: 14%; }
+  50% { top: 82%; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* HARMONY badge — the donation widget's loop, see components/common/HarmonyBadge.tsx */
+/* The widget picks the gold with light-dark(); the app follows the Telegram theme, not the OS one,
+   so a single gold that reads on both the light and the dark chat background. */
+.harmony-badge {
+  --hb-gold: #f5b23a;
+}
+.harmony-badge .hb-mark * {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.harmony-badge .hb-bar,
+.harmony-badge .hb-heart {
+  fill: #fff;
+}
+.harmony-badge .hb-bar {
+  transform-origin: bottom;
+  animation: hb-up 6s infinite;
+}
+.harmony-badge .hb-bar-2 { animation-delay: .24s; }
+.harmony-badge .hb-heart { animation: hb-heart 6s infinite; }
+.harmony-badge .hb-halo {
+  fill: var(--hb-gold);
+  transform: scale(0);
+  animation: hb-halo 6s infinite;
+}
+.harmony-badge .hb-spark {
+  fill: var(--hb-gold);
+  transform: scale(0);
+  animation: hb-spark 6s infinite;
+}
+.harmony-badge .hb-spark-2 { --hb-x: 4px; }
+.harmony-badge .hb-word b { animation: hb-glint 6s infinite; }
+@keyframes hb-up { 0%, 96%, to { transform: scaleY(0) } 8%, 84% { transform: none } }
+@keyframes hb-heart { 0%, 13%, 90%, to { transform: scale(0) } 18%, 30%, 37% { transform: scale(1.3) } 22%, 27%, 34%, 41%, 82% { transform: none } }
+@keyframes hb-halo { 0%, 26%, 33%, 45% { transform: scale(0) } 30%, 37% { transform: scale(1.3) } }
+@keyframes hb-spark { 43% { transform: none } 56%, to { transform: translate(var(--hb-x, -3px), -14px) scale(0) } }
+@keyframes hb-glint { 0%, 52%, 62%, to { color: var(--hb-text, var(--tg-theme-text-color, #1C1C1E)) } 57% { color: var(--hb-gold) } }
+@media (prefers-reduced-motion: reduce) {
+  .harmony-badge .hb-mark *, .harmony-badge .hb-word b { animation: none; }
+  .harmony-badge .hb-halo, .harmony-badge .hb-spark { transform: scale(0); }
+  .harmony-badge .hb-bar, .harmony-badge .hb-heart { transform: none; }
+}

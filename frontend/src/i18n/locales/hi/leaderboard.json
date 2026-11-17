@@ -1,0 +1,11 @@
+{
+  "title": "लीडर्स",
+  "subtitle": "शीर्ष दानदाता",
+  "empty": "अभी तक कोई दान नहीं",
+  "donations": "दान",
+  "donation_one": "{{count}} दान",
+  "donation_other": "{{count}} दान",
+  "yourPosition": "आपकी स्थिति",
+  "notRanked": "रैंकिंग में आने के लिए पहला दान करें",
+  "profileButton": "लीडरबोर्ड"
+}

@@ -1,0 +1,168 @@
+{
+  "page": {
+    "sectionsLabel": "Разделы профиля",
+    "verification": "Верификация",
+    "myCampaigns": "Мои кампании",
+    "myDonations": "Мои пожертвования",
+    "settings": "Настройки профиля",
+    "userFallback": "Пользователь",
+    "openTelegramProfile": "Открыть профиль {{username}} в Telegram",
+    "loadError": "Не удалось загрузить профиль"
+  },
+  "stats": {
+    "donated": "Пожертвовано",
+    "campaigns": "Кампаний",
+    "joined": "С нами с"
+  },
+  "share": {
+    "sectionLabel": "Шеринг публичного профиля",
+    "button": "Поделиться публичным профилем",
+    "publicHint": "Откроется публичная страница профиля",
+    "privateHint": "Сначала включите публичный профиль в настройках",
+    "publicProfileText": "Профиль {{name}} на Harmony: {{link}}",
+    "copied": "Ссылка скопирована",
+    "error": "Не удалось открыть шеринг"
+  },
+  "kyc": {
+    "pendingLabel": "KYC 0 · На проверке",
+    "pendingChip": "На проверке",
+    "rejectedLabel": "KYC 0 · Отклонена",
+    "rejectedChip": "Отклонена",
+    "notStartedLabel": "KYC 0 · Не подтверждён",
+    "notStartedChip": "Не пройдена",
+    "ariaLabel": "Статус верификации: {{label}}"
+  },
+  "donorLevel": {
+    "level": "Ур. {{level}}",
+    "toNext": "До уровня {{name}}",
+    "maxLevel": "Максимальный уровень",
+    "passed": "Уровень пройден",
+    "current": "Текущий уровень · {{amount}}",
+    "currentWithNext": "Текущий уровень · {{amount}} / {{nextAmount}}",
+    "locked": "Нужно пожертвовать от {{amount}} для достижения",
+    "close": "Закрыть"
+  },
+  "activity": {
+    "expenseReport": {
+      "approved": "✓ Отчёт",
+      "pending": "⏳ Отчёт",
+      "rejected": "✗ Отчёт",
+      "revision": "✏️ Отчёт",
+      "missing": "Нет отчёта"
+    },
+    "status": {
+      "expiredNoDonations": "Средства не поступили",
+      "expiredPartial": "Срок истёк",
+      "fundraising": "Сбор средств",
+      "deploying": "Разворачиваем в блокчейне",
+      "deployFailed": "Деплой не удался",
+      "needsManualReconcile": "Требует сверки",
+      "pendingModeration": "На модерации",
+      "approved": "Одобрена",
+      "active": "Сбор средств",
+      "suspended": "Приостановлена",
+      "completed": "Завершена",
+      "frozen": "Заморожена",
+      "refunding": "Возвраты",
+      "refunded": "Возвращена",
+      "rejected": "Отклонена"
+    },
+    "tabs": {
+      "active": "Активные",
+      "completed": "Завершенные",
+      "ariaLabel": "Статус кампаний"
+    },
+    "donorsShort": "{{count}} дон.",
+    "yourDonation": "Ваш донат",
+    "donation": "Донат"
+  },
+  "public": {
+    "title": "Профиль",
+    "notFound": "Профиль не найден или закрыт",
+    "campaigns": "Кампании",
+    "campaignsEmptyTitle": "Публичных кампаний пока нет",
+    "campaignsEmptyText": "Здесь появятся кампании, которые прошли модерацию и открыты для сбора.",
+    "donationsTitle": "История донатов",
+    "donationsEmptyTitle": "Публичных донатов пока нет",
+    "donationsEmptyText": "Анонимные пожертвования в публичной истории не показываются.",
+    "showMore": "Показать больше"
+  },
+  "verification": {
+    "title": "Верификация",
+    "connectWallet": "Подключить кошелёк",
+    "goToKyc": "Перейти к KYC {{level}}",
+    "createCampaign": "Создать кампанию",
+    "returnToProfile": "Вернуться в профиль",
+    "contactSupport": "Связаться с поддержкой",
+    "tryAgain": "Попробовать снова",
+    "start": "Начать верификацию",
+    "approvedTitle": "KYC {{level}} подтверждён",
+    "maxTitle": "Максимальная личная верификация",
+    "pendingTitle": "Проверка в процессе",
+    "errorTitle": "Ошибка",
+    "supportTitle": "Нужна поддержка",
+    "rejectedTitle": "Верификация не пройдена",
+    "connectWalletTitle": "Сначала подключите кошелёк",
+    "confirmIdentityTitle": "Подтвердите личность",
+    "nextStepDescription": "Следующий шаг KYC {{level}}.",
+    "maxDescription": "Вы прошли личный маршрут KYC. Проверка организации проходит отдельно.",
+    "pendingDescription": "Обычно это занимает до 2 минут. Мы пришлём уведомление, когда проверка завершится.",
+    "rejectedDescription": "Проверьте причину отказа. Если повторная попытка доступна, можно пройти проверку ещё раз.",
+    "walletDescription": "KYC 1 подтверждается автоматически после подключения TON-кошелька.",
+    "identityDescription": "Это нужно для создания кампаний и получения выплат.",
+    "reason": "Причина",
+    "levels": "Уровни KYC",
+    "later": "Позже",
+    "pass": "Пройти",
+    "unavailable": {
+      "3": "Проверка адреса появится позже.",
+      "4": "Расширенная проверка появится позже.",
+      "5": "Проверка организации появится позже."
+    },
+    "trustScoreText": "KYC 3 и выше добавляет Trust Score. Чем выше уровень и аккуратнее отчётность по кампаниям, тем понятнее профиль для доноров.",
+    "dataProcessor": "Кто обрабатывает данные",
+    "sumsubProcesses": "проверяет документы по защищённому каналу.",
+    "harmonyReceives": "получает только результат проверки и не хранит документы."
+  },
+  "campaigns": {
+    "title": "Мои кампании",
+    "emptyTitle": "Ещё нет кампаний",
+    "emptyText": "Создайте первую кампанию и расскажите, кому нужна помощь.",
+    "create": "Создать кампанию",
+    "completedEmptyTitle": "Завершенных кампаний пока нет",
+    "activeEmptyTitle": "Активных кампаний пока нет",
+    "completedEmptyText": "Когда кампания завершится, она появится здесь.",
+    "activeEmptyText": "Созданные и текущие кампании будут собраны в этой вкладке."
+  },
+  "donations": {
+    "title": "Мои пожертвования",
+    "emptyTitle": "Ещё нет пожертвований",
+    "emptyText": "Найдите кампанию в ленте и поддержите тех, кому нужна помощь.",
+    "openFeed": "Открыть ленту"
+  },
+  "settings": {
+    "title": "Настройки профиля",
+    "profileSection": "Профиль",
+    "publicProfile": "Публичный профиль",
+    "visible": "Виден другим пользователям",
+    "hidden": "Скрыт от других пользователей",
+    "publicProfileAria": "Публичный профиль",
+    "telegramStatus": "Показывать статус в Telegram",
+    "telegramStatusAria": "Показывать статус в Telegram",
+    "hiddenStatus": "Скрыт",
+    "premiumOnly": "Только для Telegram Premium",
+    "badgesPreparing": "Скоро: готовим значки HARMONY",
+    "privacyError": "Не удалось изменить приватность профиля.",
+    "emojiPermissionDenied": "Разрешение на установку эмодзи-статуса не выдано.",
+    "statusError": "Не удалось изменить статус.",
+    "premiumHint": "Функция доступна пользователям Telegram Premium — рядом с именем появится значок вашего уровня HARMONY.",
+    "preparingHint": "Оформляем набор значков HARMONY. Как только он подключён, ваш уровень появится рядом с именем в Telegram.",
+    "readyHint": "Ваш текущий уровень появится рядом с именем в Telegram, когда эта интеграция включена.",
+    "supportSection": "Поддержка",
+    "reportProblem": "Сообщить о проблеме",
+    "legalSection": "Документы"
+  },
+  "common": {
+    "back": "Назад"
+  }
+}

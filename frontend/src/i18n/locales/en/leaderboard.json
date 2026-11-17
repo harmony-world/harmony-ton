@@ -1,0 +1,11 @@
+{
+  "title": "Leaders",
+  "subtitle": "Top platform donors",
+  "empty": "No donations yet",
+  "donations": "donations",
+  "donation_one": "{{count}} donation",
+  "donation_other": "{{count}} donations",
+  "yourPosition": "Your position",
+  "notRanked": "Make your first donation to enter the ranking",
+  "profileButton": "Leaderboard"
+}

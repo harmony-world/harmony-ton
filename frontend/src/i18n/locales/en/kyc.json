@@ -1,0 +1,108 @@
+{
+  "common": { "back": "Back", "verification": "Verification", "loading": "Loading..." },
+  "levels": {
+    "currentText": "Current level: KYC {{current}}. The next step unlocks KYC {{target}} capabilities: {{limit}}.",
+    "routeTitle": "Verification route",
+    "current": "Now",
+    "requirementsTitle": "What you need",
+    "trustScoreTitle": "Trust Score",
+    "trustScoreText": "KYC 3 and higher adds Trust Score. The system uses only the verification level without revealing documents to other users.",
+    "processorTitle": "Who processes data",
+    "sumsubProcesses": "checks documents and videos through a secure channel.",
+    "harmonyReceives": "receives only the verification result.",
+    "kyc4Title": "What is needed before KYC 4",
+    "successfulCampaigns": "Successful campaigns: {{current}}/{{required}}",
+    "openMyCampaigns": "Open my campaigns",
+    "startError": "Failed to start verification",
+    "kyc4Unavailable": "KYC 4 is not available yet",
+    "startKyc": "Start KYC {{level}}",
+    "unavailableBadge": "Later",
+    "levelUnavailable": "Available later"
+  },
+  "requirements": {
+    "2": ["ID document, selfie, and liveness", "Camera for selfie or video confirmation"],
+    "3": ["ID document and selfie/liveness", "Proof of address: document with residential address"],
+    "4": ["Proof of address from the previous level", "Two short videos in the secure verification window", "At least two successful campaigns on the platform"],
+    "5": ["Organization documents", "Representative authority confirmation", "Organization moderation review"]
+  },
+  "result": {
+    "verifiedTitle": "KYC {{level}} verified",
+    "nextLevel": "You can move to the next level: KYC {{level}} · {{title}}.",
+    "maxLevel": "You completed the maximum personal verification level.",
+    "goToKyc": "Go to KYC {{level}}",
+    "createCampaign": "Create campaign",
+    "return": "Return",
+    "pendingTitle": "Review in progress",
+    "pendingText": "This usually takes up to 2 minutes. We will notify you when the review is complete.",
+    "pendingResumeTitle": "Verification was not completed",
+    "pendingResumeText": "You started the check but did not submit documents. You can continue from the same place or start again.",
+    "continueVerification": "Continue verification",
+    "startAgain": "Start again",
+    "returnToProfile": "Return to profile",
+    "errorTitle": "Error",
+    "supportTitle": "Support needed",
+    "rejectedTitle": "Verification failed",
+    "reason": "Reason",
+    "tryAgain": "Try again",
+    "contactSupport": "Contact support"
+  },
+  "steps": {
+    "document": "Document",
+    "selfie": "Selfie",
+    "address": "Address",
+    "processing": "Processing",
+    "video1": "Video 1",
+    "video2": "Video 2",
+    "campaigns": "Campaigns",
+    "organization": "Organization",
+    "documents": "Documents",
+    "representative": "Representative",
+    "moderation": "Moderation"
+  },
+  "sdk": {
+    "stepOf": "Step {{current}} of {{total}}",
+    "doneStep": "Current or completed step",
+    "waitingStep": "Waiting"
+  },
+  "mock": {
+    "secure": "Secure connection",
+    "defaultStep": "Processing",
+    "titles": {
+      "document": "Photograph your document",
+      "selfie": "Take a selfie",
+      "address": "Upload proof of address",
+      "video1": "Record the first video",
+      "video2": "Record the second video",
+      "campaigns": "Checking successful campaigns",
+      "organization": "Enter organization details",
+      "representative": "Confirm representative",
+      "moderation": "Sending to moderation",
+      "fallback": "Checking {{title}} level"
+    },
+    "descriptions": {
+      "document": "Place the passport in the frame and avoid glare",
+      "selfie": "Look at the camera and hold the phone steady",
+      "address": "A document with address works: statement, utility bill, or official document",
+      "video1": "Record a short confirmation that you are launching the campaign on your own behalf",
+      "video2": "Record confirmation of platform rules and responsibility for future campaigns",
+      "campaigns": "KYC 4 requires two completed campaigns on the platform",
+      "organization": "This path is intended for NGOs and legal entities",
+      "representative": "Representative authority confirmation is required",
+      "moderation": "Organization review is separate from personal KYC",
+      "fallback": "After verification completes, KYC {{level}} will be saved"
+    },
+    "actions": {
+      "uploadDocument": "Upload document",
+      "recordVideo": "Record video",
+      "checkCampaigns": "Check campaigns",
+      "continue": "Continue",
+      "confirm": "Confirm",
+      "photoDocument": "Take document photo",
+      "selfie": "Take selfie",
+      "saving": "Saving...",
+      "complete": "Complete successfully",
+      "rejectRetry": "Reject with retry",
+      "rejectFinal": "Final rejection"
+    }
+  }
+}

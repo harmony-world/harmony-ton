@@ -1,0 +1,170 @@
+{
+  "nav": {
+    "feed": "Feed",
+    "create": "Create",
+    "profile": "Profile",
+    "wallet": "Wallet"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "done": "Done",
+    "search": "Search",
+    "share": "Share",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "tmaGuard": {
+    "title": "Open the app in Telegram",
+    "subtitle": "HARMONY.WORLD works only as a Telegram Mini App"
+  },
+  "trustScore": {
+    "high": "High",
+    "low": "Low",
+    "normal": "Normal",
+    "ariaLabel": "Trust Score {{score}}: {{level}} trust level",
+    "modalTitle": "{{level}} trust level",
+    "rangeLow": "low",
+    "rangeNormal": "normal",
+    "rangeHigh": "high",
+    "description1": "Trust Score shows how regularly a profile passes checks and confirms actions on the platform.",
+    "description2": "Influenced by campaign reports, verified channels, completed verification, and Telegram Premium."
+  },
+  "donorLevels": {
+    "title": "Donor Levels",
+    "description": "Your level grows with confirmed donations to public campaigns.",
+    "level": "lvl. {{level}}",
+    "maxLevel": "Maximum level",
+    "toNextLevel": "Until {{name}} level",
+    "availableFromStart": "Available from the start",
+    "fromThreshold": "From {{amount}} in confirmed donations",
+    "ariaLabel": "Donor status: {{name}}, level {{level}}",
+    "levelNames": {
+      "1": "Sprout",
+      "2": "Helper",
+      "3": "Patron",
+      "4": "Guardian",
+      "5": "Keeper"
+    },
+    "levelDescriptions": {
+      "1": "Your first step towards good",
+      "2": "You help those in need",
+      "3": "Your support makes a difference",
+      "4": "You inspire others to do good",
+      "5": "The highest donor level"
+    }
+  },
+  "campaignStatus": {
+    "active": "Active",
+    "completed": "Completed",
+    "expired": "Expired",
+    "suspended": "Suspended",
+    "frozen": "Frozen",
+    "rejected": "Rejected",
+    "refunding": "Refunding",
+    "refunded": "Refunded",
+    "fundsClaimed": "Funds Withdrawn",
+    "campaignCompleted": "Campaign Completed",
+    "claimed": "withdrawn"
+  },
+  "displayStatus": {
+    "fundraising": "Fundraising",
+    "expired_partial": "Time expired",
+    "expired_no_donations": "No donations",
+    "completed": "Completed",
+    "frozen": "Frozen",
+    "suspended": "Suspended"
+  },
+  "kycLevels": {
+    "0": "Guest",
+    "1": "Donor",
+    "2": "Recipient",
+    "3": "Recipient+",
+    "4": "Full KYC",
+    "5": "NGO / Organization"
+  },
+  "kycRequirements": {
+    "0": "Telegram account",
+    "1": "TON Connect wallet",
+    "2": "ID document, selfie and liveness",
+    "3": "Document, liveness and proof of address",
+    "4": "Proof of address, 2 videos and 2+ successful campaigns",
+    "5": "On-chain/multisig organization verification"
+  },
+  "kycLimits": {
+    "0": "View and share",
+    "1": "Unlimited donations",
+    "2": "Campaigns up to $1,000",
+    "3": "Campaigns up to $10,000",
+    "4": "Unlimited",
+    "5": "Unlimited"
+  },
+  "kycSteps": {
+    "document": "Document",
+    "selfie": "Selfie",
+    "address": "Address",
+    "processing": "Processing",
+    "video1": "Video 1",
+    "video2": "Video 2",
+    "campaigns": "Campaigns",
+    "organization": "Organization",
+    "documents": "Documents",
+    "representative": "Representative",
+    "moderation": "Moderation"
+  },
+  "categories": {
+    "project": "Project Growth",
+    "channel": "Channel Growth",
+    "health": "Health",
+    "education": "Education",
+    "disaster": "Disaster",
+    "housing": "Housing",
+    "family": "Family",
+    "social": "Social Aid",
+    "animals": "Animals",
+    "birthday": "Birthday",
+    "other": "Other"
+  },
+  "home": {
+    "tagline": "P2P charity on the TON blockchain"
+  },
+  "api": {
+    "invalidCategory": "Invalid category",
+    "badRequest": "Check the form fields and try again"
+  },
+  "upload": {
+    "compressFailed": "Failed to compress image",
+    "loadFailed": "Failed to load image",
+    "tooLarge": "This photo is too heavy (30 MB maximum)",
+    "tooLargeAfterCompression": "The file is too large even after compression",
+    "unsupportedFormat": "This image format is not supported"
+  },
+  "tonConnect": {
+    "noResponseDispatched": "The wallet received the request but did not return a result. Check wallet history before sending again.",
+    "noResponseConnected": "The wallet connected but did not receive the transaction request. Reset the connection and try again."
+  },
+  "language": {
+    "ru": "Русский",
+    "en": "English",
+    "hi": "हिन्दी"
+  },
+  "terms": {
+    "title": "Welcome to HARMONY",
+    "intro": "Before you start, please read the Terms of Use and the Privacy Policy. They explain how fundraisers work, who is responsible for what and what we do with your data.",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "checkbox": "I have read and accept the Terms of Use and the Privacy Policy, and I am 18 or older",
+    "accept": "I accept",
+    "accepting": "Saving…",
+    "error": "Could not save your consent. Please try again.",
+    "back": "Back"
+  }
+}

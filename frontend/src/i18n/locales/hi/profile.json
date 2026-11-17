@@ -1,0 +1,168 @@
+{
+  "page": {
+    "sectionsLabel": "प्रोफ़ाइल अनुभाग",
+    "verification": "सत्यापन",
+    "myCampaigns": "मेरे अभियान",
+    "myDonations": "मेरे दान",
+    "settings": "प्रोफ़ाइल सेटिंग्स",
+    "userFallback": "यूज़र",
+    "openTelegramProfile": "Telegram में {{username}} की प्रोफ़ाइल खोलें",
+    "loadError": "प्रोफ़ाइल लोड नहीं हो सकी"
+  },
+  "stats": {
+    "donated": "दान किया",
+    "campaigns": "अभियान",
+    "joined": "हमारे साथ"
+  },
+  "share": {
+    "sectionLabel": "सार्वजनिक प्रोफ़ाइल शेयर",
+    "button": "सार्वजनिक प्रोफ़ाइल शेयर करें",
+    "publicHint": "आपकी सार्वजनिक प्रोफ़ाइल खुलेगी",
+    "privateHint": "पहले सेटिंग्स में सार्वजनिक प्रोफ़ाइल चालू करें",
+    "publicProfileText": "Harmony पर {{name}} की प्रोफ़ाइल: {{link}}",
+    "copied": "लिंक कॉपी हो गया",
+    "error": "शेयरिंग खोल नहीं पाए"
+  },
+  "kyc": {
+    "pendingLabel": "KYC 0 · समीक्षा में",
+    "pendingChip": "समीक्षा में",
+    "rejectedLabel": "KYC 0 · अस्वीकृत",
+    "rejectedChip": "अस्वीकृत",
+    "notStartedLabel": "KYC 0 · सत्यापित नहीं",
+    "notStartedChip": "पूरा नहीं",
+    "ariaLabel": "सत्यापन स्थिति: {{label}}"
+  },
+  "donorLevel": {
+    "level": "स्तर {{level}}",
+    "toNext": "{{name}} स्तर तक",
+    "maxLevel": "अधिकतम स्तर",
+    "passed": "स्तर पूरा",
+    "current": "वर्तमान स्तर · {{amount}}",
+    "currentWithNext": "वर्तमान स्तर · {{amount}} / {{nextAmount}}",
+    "locked": "अनलॉक करने के लिए {{amount}} से दान करें",
+    "close": "बंद करें"
+  },
+  "activity": {
+    "expenseReport": {
+      "approved": "✓ रिपोर्ट",
+      "pending": "⏳ रिपोर्ट",
+      "rejected": "✗ रिपोर्ट",
+      "revision": "✏️ रिपोर्ट",
+      "missing": "रिपोर्ट नहीं"
+    },
+    "status": {
+      "expiredNoDonations": "कोई राशि प्राप्त नहीं हुई",
+      "expiredPartial": "समाप्त",
+      "fundraising": "धन संग्रह",
+      "deploying": "ब्लॉकचेन पर तैनात हो रहा है",
+      "deployFailed": "डिप्लॉय विफल",
+      "needsManualReconcile": "मिलान आवश्यक",
+      "pendingModeration": "मॉडरेशन में",
+      "approved": "स्वीकृत",
+      "active": "धन संग्रह",
+      "suspended": "रुका हुआ",
+      "completed": "पूर्ण",
+      "frozen": "फ्रीज़",
+      "refunding": "रिफंड",
+      "refunded": "रिफंड हुआ",
+      "rejected": "अस्वीकृत"
+    },
+    "tabs": {
+      "active": "सक्रिय",
+      "completed": "पूर्ण",
+      "ariaLabel": "अभियान स्थिति"
+    },
+    "donorsShort": "{{count}} दान",
+    "yourDonation": "आपका दान",
+    "donation": "दान"
+  },
+  "public": {
+    "title": "प्रोफ़ाइल",
+    "notFound": "प्रोफ़ाइल नहीं मिली या निजी है",
+    "campaigns": "अभियान",
+    "campaignsEmptyTitle": "अभी कोई सार्वजनिक अभियान नहीं",
+    "campaignsEmptyText": "मॉडरेशन पास कर चुके और धन संग्रह के लिए खुले अभियान यहां दिखेंगे।",
+    "donationsTitle": "दान इतिहास",
+    "donationsEmptyTitle": "अभी कोई सार्वजनिक दान नहीं",
+    "donationsEmptyText": "अनाम दान सार्वजनिक इतिहास में नहीं दिखते।",
+    "showMore": "और दिखाएँ"
+  },
+  "verification": {
+    "title": "सत्यापन",
+    "connectWallet": "वॉलेट कनेक्ट करें",
+    "goToKyc": "KYC {{level}} पर जाएँ",
+    "createCampaign": "अभियान बनाएँ",
+    "returnToProfile": "प्रोफ़ाइल पर लौटें",
+    "contactSupport": "सहायता से संपर्क करें",
+    "tryAgain": "फिर प्रयास करें",
+    "start": "सत्यापन शुरू करें",
+    "approvedTitle": "KYC {{level}} सत्यापित",
+    "maxTitle": "अधिकतम व्यक्तिगत सत्यापन",
+    "pendingTitle": "समीक्षा जारी है",
+    "errorTitle": "त्रुटि",
+    "supportTitle": "सहायता चाहिए",
+    "rejectedTitle": "सत्यापन विफल",
+    "connectWalletTitle": "पहले वॉलेट कनेक्ट करें",
+    "confirmIdentityTitle": "पहचान की पुष्टि करें",
+    "nextStepDescription": "अगला चरण KYC {{level}}.",
+    "maxDescription": "आपने व्यक्तिगत KYC मार्ग पूरा कर लिया है। संगठन समीक्षा अलग से होती है।",
+    "pendingDescription": "आमतौर पर इसमें 2 मिनट तक लगते हैं। समीक्षा पूरी होने पर हम सूचना देंगे।",
+    "rejectedDescription": "अस्वीकृति का कारण देखें। यदि पुनः प्रयास उपलब्ध है, तो सत्यापन फिर से कर सकते हैं।",
+    "walletDescription": "TON वॉलेट कनेक्ट होने के बाद KYC 1 अपने आप पुष्टि होता है।",
+    "identityDescription": "अभियान बनाने और भुगतान पाने के लिए यह आवश्यक है।",
+    "reason": "कारण",
+    "levels": "KYC स्तर",
+    "later": "बाद में",
+    "pass": "पूरा करें",
+    "unavailable": {
+      "3": "पते की जांच बाद में उपलब्ध होगी।",
+      "4": "विस्तारित सत्यापन बाद में उपलब्ध होगा।",
+      "5": "संगठन सत्यापन बाद में उपलब्ध होगा।"
+    },
+    "trustScoreText": "KYC 3 और ऊपर Trust Score जोड़ता है। स्तर जितना ऊंचा और रिपोर्टिंग जितनी साफ़, दाताओं के लिए प्रोफ़ाइल उतनी स्पष्ट।",
+    "dataProcessor": "डेटा कौन प्रोसेस करता है",
+    "sumsubProcesses": "सुरक्षित चैनल से दस्तावेज़ जांचता है।",
+    "harmonyReceives": "केवल समीक्षा परिणाम प्राप्त करता है और दस्तावेज़ संग्रहीत नहीं करता।"
+  },
+  "campaigns": {
+    "title": "मेरे अभियान",
+    "emptyTitle": "अभी कोई अभियान नहीं",
+    "emptyText": "पहला अभियान बनाएँ और बताएं किसे मदद चाहिए।",
+    "create": "अभियान बनाएँ",
+    "completedEmptyTitle": "अभी कोई पूर्ण अभियान नहीं",
+    "activeEmptyTitle": "अभी कोई सक्रिय अभियान नहीं",
+    "completedEmptyText": "अभियान पूर्ण होने पर वह यहां दिखेगा।",
+    "activeEmptyText": "बनाए गए और चल रहे अभियान इस टैब में रहेंगे।"
+  },
+  "donations": {
+    "title": "मेरे दान",
+    "emptyTitle": "अभी कोई दान नहीं",
+    "emptyText": "फ़ीड में अभियान खोजें और किसी ज़रूरतमंद की मदद करें।",
+    "openFeed": "फ़ीड खोलें"
+  },
+  "settings": {
+    "title": "प्रोफ़ाइल सेटिंग्स",
+    "profileSection": "प्रोफ़ाइल",
+    "publicProfile": "सार्वजनिक प्रोफ़ाइल",
+    "visible": "दूसरे यूज़र देख सकते हैं",
+    "hidden": "दूसरे यूज़र से छुपा",
+    "publicProfileAria": "सार्वजनिक प्रोफ़ाइल",
+    "telegramStatus": "Telegram में स्टेटस दिखाएँ",
+    "telegramStatusAria": "Telegram में स्टेटस दिखाएँ",
+    "hiddenStatus": "छुपा",
+    "premiumOnly": "सिर्फ़ Telegram Premium",
+    "badgesPreparing": "जल्द: HARMONY बैज तैयार हो रहे हैं",
+    "privacyError": "प्रोफ़ाइल गोपनीयता बदलने में विफल।",
+    "emojiPermissionDenied": "इमोजी स्टेटस अनुमति नहीं मिली।",
+    "statusError": "स्टेटस बदलने में विफल।",
+    "premiumHint": "यह सुविधा Telegram Premium यूज़र के लिए है। आपके नाम के पास HARMONY स्तर का बैज दिखेगा।",
+    "preparingHint": "हम HARMONY बैज सेट तैयार कर रहे हैं। जुड़ने के बाद आपका स्तर Telegram में नाम के पास दिखेगा।",
+    "readyHint": "यह इंटीग्रेशन चालू होने पर आपका वर्तमान स्तर Telegram में नाम के पास दिखेगा।",
+    "supportSection": "सहायता",
+    "reportProblem": "समस्या रिपोर्ट करें",
+    "legalSection": "दस्तावेज़"
+  },
+  "common": {
+    "back": "पीछे"
+  }
+}

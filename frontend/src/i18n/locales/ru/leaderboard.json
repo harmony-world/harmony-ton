@@ -1,0 +1,12 @@
+{
+  "title": "Лидеры",
+  "subtitle": "Топ доноров платформы",
+  "empty": "Пока нет донатов",
+  "donations": "донатов",
+  "donation_one": "{{count}} донат",
+  "donation_few": "{{count}} доната",
+  "donation_many": "{{count}} донатов",
+  "yourPosition": "Ваша позиция",
+  "notRanked": "Сделайте первый донат, чтобы попасть в рейтинг",
+  "profileButton": "Лидерборд"
+}

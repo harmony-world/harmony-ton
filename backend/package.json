@@ -1,0 +1,54 @@
+{
+  "name": "harmony-ton-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --experimental-strip-types src/index.ts",
+    "prebuild": "npm --prefix ../contracts/harmony/wrappers-ts run build",
+    "build": "tsc && cp -r src/assets dist/",
+    "start": "node dist/index.js",
+    "lint": "eslint src",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "indexer": "node --experimental-strip-types src/indexer/index.ts",
+    "indexer:build": "tsc && node dist/indexer/index.js",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@fastify/helmet": "^11.1.1",
+    "@fastify/multipart": "^8.3.1",
+    "@jsquash/webp": "^1.5.0",
+    "@prisma/client": "^5.22.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@ton/core": "^0.63.1",
+    "@ton/ton": "^16.3.0",
+    "@translated/lara": "^1.13.0",
+    "fastify": "^4.28.1",
+    "fastify-plugin": "^4.5.1",
+    "grammy": "^1.44.0",
+    "jpeg-js": "^0.4.4",
+    "pako": "^2.2.0",
+    "pino": "^9.4.0",
+    "pngjs": "^7.0.0",
+    "satori": "^0.29.0"
+  },
+  "overrides": {
+    "fast-uri": ">=3.1.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@types/node": "^22.9.3",
+    "@types/pako": "^2.0.4",
+    "@types/pngjs": "^6.0.5",
+    "@vitest/coverage-v8": "^2.1.9",
+    "eslint": "^9.15.0",
+    "prisma": "^5.22.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0",
+    "vitest": "^2.1.9"
+  }
+}

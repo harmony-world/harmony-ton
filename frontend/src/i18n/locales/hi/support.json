@@ -1,0 +1,19 @@
+{
+  "maxPhotos": "अधिकतम {{count}} स्क्रीनशॉट",
+  "uploadError": "फ़ोटो अपलोड विफल",
+  "sent": "संदेश भेजा गया। धन्यवाद!",
+  "sendError": "संदेश भेजने में विफल",
+  "back": "पीछे",
+  "title": "समस्या रिपोर्ट करें",
+  "descriptionLabel": "समस्या बताएं",
+  "descriptionPlaceholder": "क्या हुआ?",
+  "minChars": "न्यूनतम 5 अक्षर",
+  "screenshots": "स्क्रीनशॉट",
+  "screenshotsLimit": "(अधिकतम {{count}})",
+  "screenshotAlt": "स्क्रीनशॉट {{index}}",
+  "loading": "लोड हो रहा है...",
+  "addScreenshot": "स्क्रीनशॉट जोड़ें",
+  "replyHint": "यदि आप सहायता से उत्तर चाहते हैं, तो Telegram में अपने संपर्कों से बाहर के यूज़र को आपको संदेश भेजने दें।",
+  "sending": "भेजा जा रहा है...",
+  "send": "भेजें"
+}

@@ -1,0 +1,20 @@
+{
+  "emptyTitle": "Wallet not connected",
+  "emptyText": "Connect a wallet to get KYC 1, donate, and launch campaigns.",
+  "connect": "Connect wallet",
+  "supported": "Tonkeeper, Wallet, and others are supported",
+  "myWallet": "My wallet",
+  "copyAddress": "Copy wallet address",
+  "copied": "✓ Copied",
+  "copyError": "Error",
+  "copy": "Copy",
+  "bound": "Bound to account",
+  "kyc1": "KYC 1 verified",
+  "donationsAndCampaigns": "Donations and campaigns",
+  "checking": "Checking connection…",
+  "connected": "Wallet connected — you can donate and launch campaigns",
+  "disconnect": "Disconnect wallet",
+  "bindingStays": "Wallet binding and KYC 1 will remain.",
+  "connectToDonate": "Connect a wallet to donate and launch campaigns.",
+  "sameWallet": "The same wallet will connect — KYC and history are preserved."
+}

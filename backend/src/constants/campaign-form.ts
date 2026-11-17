@@ -1,0 +1,10 @@
+export const CAMPAIGN_TITLE_MIN_LENGTH = 10;
+export const CAMPAIGN_TITLE_MAX_LENGTH = 100;
+
+export const CAMPAIGN_STORY_MIN_LENGTH = 100;
+export const CAMPAIGN_STORY_MAX_LENGTH = 500;
+
+export const CAMPAIGN_GOAL_MIN_USD = 10;
+
+export const CAMPAIGN_PHOTOS_MIN = 1;
+export const CAMPAIGN_PHOTOS_MAX = 10;

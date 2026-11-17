@@ -1,0 +1,437 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   String    @id @default(uuid()) @db.Uuid
+  tgUserId             BigInt    @unique @map("tg_user_id")
+  tgUsername           String?   @map("tg_username") @db.VarChar(50)
+  tgFirstName          String?   @map("tg_first_name") @db.VarChar(100)
+  tgLastName           String?   @map("tg_last_name") @db.VarChar(100)
+  tgPhotoUrl           String?   @map("tg_photo_url") @db.VarChar(500)
+  languageCode         String?   @map("language_code") @db.VarChar(8)
+  tgIsPremium          Boolean   @default(false) @map("tg_is_premium")
+  tgAccountAge         DateTime? @map("tg_account_age") @db.Timestamptz(6)
+  walletAddress        String?   @map("wallet_address") @db.VarChar(70)
+  walletFriendly       String?   @map("wallet_friendly") @db.VarChar(70)
+  walletConnected      Boolean   @default(false) @map("wallet_connected")
+  walletKind           String?   @map("wallet_kind") @db.VarChar(20)
+  role                 String    @default("donor") @db.VarChar(20)
+  adminTokenVersion    Int       @default(0) @map("admin_token_version")
+  kycLevel             Int       @default(0) @map("kyc_level") @db.SmallInt
+  trustScore           Int       @default(50) @map("trust_score") @db.SmallInt
+  donorStatus          String?   @default("none") @map("donor_status") @db.VarChar(30)
+  totalDonatedUsd      Decimal   @default(0) @map("total_donated_usd") @db.Decimal(15, 2)
+  donationCount        Int       @default(0) @map("donation_count")
+  isPublic             Boolean   @default(true) @map("is_public")
+  emojiStatusEnabled   Boolean   @default(false) @map("emoji_status_enabled")
+  emojiStatusEmojiId   String?   @map("emoji_status_emoji_id") @db.VarChar(50)
+  emojiStatusGrantedAt DateTime? @map("emoji_status_granted_at") @db.Timestamptz(6)
+  isBlocked            Boolean   @default(false) @map("is_blocked")
+  blockedReason        String?   @map("blocked_reason") @db.VarChar(500)
+  kycStatus            String    @default("not_started") @map("kyc_status") @db.VarChar(30)
+  kycProvider          String?   @map("kyc_provider") @db.VarChar(30)
+  kycVerifiedAt        DateTime? @map("kyc_verified_at") @db.Timestamptz(6)
+  kycTargetLevel       Int?      @map("kyc_target_level") @db.SmallInt
+  sumsubApplicantId    String?   @map("sumsub_applicant_id") @db.VarChar(100)
+  docHash              String?   @unique @map("doc_hash") @db.VarChar(64)
+  docHashAlgo          String?   @map("doc_hash_algo") @db.VarChar(20)
+  termsVersion         String?   @map("terms_version") @db.VarChar(20)
+  termsAcceptedAt      DateTime? @map("terms_accepted_at") @db.Timestamptz(6)
+  createdAt            DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt            DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  campaignsCreated   Campaign[]         @relation("CampaignCreator")
+  campaignsModerated Campaign[]         @relation("CampaignModerator")
+  donations          Donation[]
+  donationIntents    DonationIntent[]
+  withdrawals        Withdrawal[]
+  moderationActions       ModerationAction[] @relation("ModeratorActions")
+  moderationTargets       ModerationAction[] @relation("ModeratedUser")
+  reportsSubmitted        Report[]           @relation("ReporterReports")
+  reportsReviewed         Report[]           @relation("ReviewerReports")
+  expenseReportsCreated   ExpenseReport[]    @relation("ExpenseReportCreator")
+  expenseReportsModerated ExpenseReport[]    @relation("ExpenseReportModerator")
+  kycAttempts        KycAttempt[]
+  moderationEvents   CampaignModerationEvent[] @relation("CampaignModerationEventCreator")
+  channelBindings    ChannelBinding[]
+
+  @@index([tgUserId], map: "idx_users_tg_id")
+  @@index([walletAddress], map: "idx_users_wallet")
+  @@map("users")
+}
+
+model KycAttempt {
+  id                               String    @id @default(uuid()) @db.Uuid
+  userId                           String    @map("user_id") @db.Uuid
+  targetLevel                      Int       @map("target_level") @db.SmallInt
+  provider                         String    @db.VarChar(30)
+  providerApplicantId              String?   @map("provider_applicant_id") @db.VarChar(100)
+  providerLevelName                String?   @map("provider_level_name") @db.VarChar(100)
+  status                           String    @default("created") @db.VarChar(30)
+  requiredSteps                    Json?     @map("required_steps")
+  providerSteps                    Json?     @map("provider_steps")
+  successfulCampaignsCountAtStart  Int?      @map("successful_campaigns_count_at_start")
+  successfulCampaignsCountAtReview Int?      @map("successful_campaigns_count_at_review")
+  failureCode                      String?   @map("failure_code") @db.VarChar(80)
+  failureReason                    String?   @map("failure_reason")
+  rawWebhookEventId                String?   @map("raw_webhook_event_id") @db.VarChar(120)
+  startedAt                        DateTime  @default(now()) @map("started_at") @db.Timestamptz(6)
+  reviewedAt                       DateTime? @map("reviewed_at") @db.Timestamptz(6)
+  createdAt                        DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                        DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, targetLevel, status], map: "idx_kyc_attempts_user_target_status")
+  @@index([providerApplicantId], map: "idx_kyc_attempts_provider_applicant")
+  @@map("kyc_attempts")
+}
+
+model Campaign {
+  id                  String                   @id @default(uuid()) @db.Uuid
+  onchainAddress      String?                  @unique @map("onchain_address") @db.VarChar(70)
+  deployStatus        String                   @default("not_started") @map("deploy_status") @db.VarChar(30)
+  deployError         String?                  @map("deploy_error")
+  deployAttempts      Int                      @default(0) @map("deploy_attempts")
+  lastDeployAttemptAt DateTime?                @map("last_deploy_attempt_at") @db.Timestamptz(6)
+  deployedAt          DateTime?                @map("deployed_at") @db.Timestamptz(6)
+  creatorId           String                   @map("creator_id") @db.Uuid
+  title               String                   @db.VarChar(100)
+  story               String
+  language            String?                  @db.VarChar(8)
+  category            String                   @db.VarChar(30)
+  status              String                   @default("pending_moderation") @db.VarChar(30)
+  goalAmountUsd       Decimal                  @map("goal_amount_usd") @db.Decimal(15, 2)
+  goalAmountToken     Decimal                  @map("goal_amount_token") @db.Decimal(36, 9)
+  goalToken           String                   @default("USDT") @map("goal_token") @db.VarChar(10)
+  raisedAmountUsd     Decimal                  @default(0) @map("raised_amount_usd") @db.Decimal(15, 2)
+  raisedAmountToken   Decimal                  @default(0) @map("raised_amount_token") @db.Decimal(36, 9)
+  trustScore          Int                      @default(0) @map("trust_score") @db.SmallInt
+  deadline            DateTime                 @db.Timestamptz(6)
+  onchainDeadline     DateTime?                @map("onchain_deadline") @db.Timestamptz(6)
+  onchainDriftAt      DateTime?                @map("onchain_drift_at") @db.Timestamptz(6)
+  onchainDriftDetail  Json?                    @map("onchain_drift_detail")
+  payoutAddress       String                   @map("payout_address") @db.VarChar(70)
+  payoutWalletKind    String?                  @map("payout_wallet_kind") @db.VarChar(20)
+  donorCount          Int                      @default(0) @map("donor_count")
+  viewCount           Int                      @default(0) @map("view_count")
+  reportCount         Int                      @default(0) @map("report_count")
+  photos              String[]                 @default([])
+  tgPhotoFileId       String?                  @map("tg_photo_file_id") @db.VarChar(200)
+  organizerType       String                   @default("personal") @map("organizer_type") @db.VarChar(30)
+  channelId           BigInt?                  @map("channel_id")
+  channelName         String?                  @map("channel_name") @db.VarChar(255)
+  channelUsername     String?                  @map("channel_username") @db.VarChar(50)
+  channelSubscribers  Int?                     @map("channel_subscribers")
+  channelAvatarUrl    String?                  @map("channel_avatar_url") @db.VarChar(500)
+  channelBotIsAdmin   Boolean                  @default(false) @map("channel_bot_is_admin")
+  channelAutopost     Boolean                  @default(false) @map("channel_autopost")
+  isPublic            Boolean                  @default(true) @map("is_public")
+  photosIllustrative  Boolean                  @default(false) @map("photos_illustrative")
+  hiddenAt            DateTime?                @map("hidden_at") @db.Timestamptz(6)
+  hiddenById          String?                  @map("hidden_by_id") @db.Uuid
+  beneficiaryCity     String?                  @map("beneficiary_city") @db.VarChar(100)
+  beneficiaryRegion   String?                  @map("beneficiary_region") @db.VarChar(100)
+  moderatedBy         String?                  @map("moderated_by") @db.Uuid
+  moderationNote      String?                  @map("moderation_note")
+  createdAt           DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  approvedAt          DateTime?                @map("approved_at") @db.Timestamptz(6)
+  completedAt         DateTime?                @map("completed_at") @db.Timestamptz(6)
+  searchVector        Unsupported("tsvector")? @map("search_vector")
+
+  creator           User               @relation("CampaignCreator", fields: [creatorId], references: [id])
+  moderator         User?              @relation("CampaignModerator", fields: [moderatedBy], references: [id])
+  donations         Donation[]
+  donationIntents   DonationIntent[]
+  withdrawals       Withdrawal[]
+  moderationActions ModerationAction[]
+  reports           Report[]
+  channelAutoposts  ChannelAutopost[]
+  expenseReport     ExpenseReport?
+  translations      CampaignTranslation[]
+
+  @@index([status], map: "idx_campaigns_status")
+  @@index([deployStatus], map: "idx_campaigns_deploy_status")
+  @@index([creatorId], map: "idx_campaigns_creator")
+  @@index([channelId], map: "idx_campaigns_channel")
+  @@index([isPublic], map: "idx_campaigns_is_public")
+  @@map("campaigns")
+}
+
+model CampaignTranslation {
+  id           String   @id @default(uuid()) @db.Uuid
+  campaignId   String   @map("campaign_id") @db.Uuid
+  language     String   @db.VarChar(8)
+  title        String   @db.VarChar(100)
+  story        String
+  source       String   @default("lara") @db.VarChar(20)
+  translatedAt DateTime @default(now()) @map("translated_at") @db.Timestamptz(6)
+
+  campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+
+  @@unique([campaignId, language], map: "campaign_translations_campaign_language_key")
+  @@index([campaignId], map: "idx_campaign_translations_campaign")
+  @@map("campaign_translations")
+}
+
+model Donation {
+  id             String   @id @default(uuid()) @db.Uuid
+  campaignId     String   @map("campaign_id") @db.Uuid
+  donorId        String?  @map("donor_id") @db.Uuid
+  donorTgUserId  BigInt?  @map("donor_tg_user_id")
+  donorAddress   String   @map("donor_address") @db.VarChar(70)
+  amountToken    Decimal  @map("amount_token") @db.Decimal(36, 9)
+  amountUsd      Decimal  @map("amount_usd") @db.Decimal(15, 2)
+  tipAmountToken Decimal  @default(0) @map("tip_amount_token") @db.Decimal(36, 9)
+  tipAmountUsd   Decimal  @default(0) @map("tip_amount_usd") @db.Decimal(15, 2)
+  token          String   @db.VarChar(10)
+  txHash         String   @map("tx_hash") @db.VarChar(70)
+  lt             BigInt
+  blockSeqno     BigInt   @map("block_seqno")
+  status         String   @default("confirmed") @db.VarChar(20)
+  nftAddress     String?  @map("nft_address") @db.VarChar(70)
+  isAnonymous    Boolean  @default(false) @map("is_anonymous")
+  message        String?  @db.VarChar(500)
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  campaign Campaign @relation(fields: [campaignId], references: [id])
+  donor    User?    @relation(fields: [donorId], references: [id])
+
+  @@unique([txHash, lt], map: "donations_tx_hash_lt_key")
+  @@index([campaignId, status], map: "idx_donations_campaign")
+  @@index([donorAddress], map: "idx_donations_donor")
+  @@index([donorTgUserId], map: "idx_donations_donor_tg")
+  @@map("donations")
+}
+
+model DonationIntent {
+  id            String    @id @default(uuid()) @db.Uuid
+  campaignId    String    @map("campaign_id") @db.Uuid
+  donorId       String?   @map("donor_id") @db.Uuid
+  donorTgUserId BigInt?   @map("donor_tg_user_id")
+  donorAddress  String    @map("donor_address") @db.VarChar(70)
+  amountToken   Decimal   @map("amount_token") @db.Decimal(36, 9)
+  token         String    @db.VarChar(10)
+  donorName     String?   @map("donor_name") @db.VarChar(100)
+  isAnonymous   Boolean   @default(false) @map("is_anonymous")
+  matchedAt     DateTime? @map("matched_at") @db.Timestamptz(6)
+  expiresAt     DateTime  @map("expires_at") @db.Timestamptz(6)
+  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  campaign Campaign @relation(fields: [campaignId], references: [id])
+  donor    User?    @relation(fields: [donorId], references: [id])
+
+  @@index([campaignId, donorAddress, token, matchedAt], map: "idx_donation_intents_match")
+  @@index([expiresAt], map: "idx_donation_intents_expires")
+  @@map("donation_intents")
+}
+
+model Withdrawal {
+  id              String    @id @default(uuid()) @db.Uuid
+  campaignId      String    @map("campaign_id") @db.Uuid
+  recipientId     String    @map("recipient_id") @db.Uuid
+  amountToken     Decimal   @map("amount_token") @db.Decimal(36, 9)
+  amountUsd       Decimal   @map("amount_usd") @db.Decimal(15, 2)
+  token           String    @db.VarChar(10)
+  destinationAddr String    @map("destination_addr") @db.VarChar(70)
+  txHash          String?   @unique(map: "withdrawals_tx_hash_key") @map("tx_hash") @db.VarChar(70)
+  status          String    @default("pending") @db.VarChar(20)
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  confirmedAt     DateTime? @map("confirmed_at") @db.Timestamptz(6)
+
+  campaign  Campaign @relation(fields: [campaignId], references: [id])
+  recipient User     @relation(fields: [recipientId], references: [id])
+
+  @@index([campaignId], map: "idx_withdrawals_campaign")
+  @@map("withdrawals")
+}
+
+model ModerationAction {
+  id          String   @id @default(uuid()) @db.Uuid
+  campaignId  String?  @map("campaign_id") @db.Uuid
+  userId      String?  @map("user_id") @db.Uuid
+  moderatorId String   @map("moderator_id") @db.Uuid
+  actionType  String   @map("action_type") @db.VarChar(30)
+  reason      String?
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  campaign  Campaign? @relation(fields: [campaignId], references: [id])
+  user      User?     @relation("ModeratedUser", fields: [userId], references: [id])
+  moderator User      @relation("ModeratorActions", fields: [moderatorId], references: [id])
+
+  @@index([campaignId], map: "idx_mod_campaign")
+  @@map("moderation_actions")
+}
+
+model CampaignModerationEvent {
+  id                  String    @id @default(uuid()) @db.Uuid
+  campaignId          String    @map("campaign_id") @db.Uuid
+  creatorId           String?   @map("creator_id") @db.Uuid
+  creatorTgUserId     BigInt?   @map("creator_tg_user_id")
+  moderatorTgUserId   BigInt?   @map("moderator_tg_user_id")
+  actor               String    @default("human_moderator") @db.VarChar(30)
+  actionType          String    @map("action_type") @db.VarChar(30)
+  reason              String?
+  reasonCodes         Json?     @map("reason_codes")
+  screenerVersion     String?   @map("screener_version") @db.VarChar(30)
+  snapshot            Json?
+  moderatorFeedback   String?   @map("moderator_feedback") @db.VarChar(30)
+  moderatorFeedbackAt DateTime? @map("moderator_feedback_at") @db.Timestamptz(6)
+  title               String    @db.VarChar(100)
+  category            String    @db.VarChar(30)
+  goalAmountUsd       Decimal   @map("goal_amount_usd") @db.Decimal(15, 2)
+  campaignCreatedAt   DateTime? @map("campaign_created_at") @db.Timestamptz(6)
+  decidedAt           DateTime  @default(now()) @map("decided_at") @db.Timestamptz(6)
+  createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  creator User? @relation("CampaignModerationEventCreator", fields: [creatorId], references: [id], onDelete: SetNull)
+
+  @@index([campaignId], map: "idx_campaign_moderation_events_campaign")
+  @@index([creatorId], map: "idx_campaign_moderation_events_creator")
+  @@index([moderatorTgUserId], map: "idx_campaign_moderation_events_moderator_tg")
+  @@index([actor], map: "idx_campaign_moderation_events_actor")
+  @@map("campaign_moderation_events")
+}
+
+model Report {
+  id          String   @id @default(uuid()) @db.Uuid
+  campaignId  String   @map("campaign_id") @db.Uuid
+  reporterId  String   @map("reporter_id") @db.Uuid
+  reason      String   @db.VarChar(50)
+  description String?
+  status      String   @default("open") @db.VarChar(20)
+  reviewedBy  String?  @map("reviewed_by") @db.Uuid
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  campaign Campaign @relation(fields: [campaignId], references: [id])
+  reporter User     @relation("ReporterReports", fields: [reporterId], references: [id])
+  reviewer User?    @relation("ReviewerReports", fields: [reviewedBy], references: [id])
+
+  @@index([campaignId, status], map: "idx_reports_campaign")
+  @@map("reports")
+}
+
+model PendingModerationReject {
+  moderatorTgId BigInt   @id @map("moderator_tg_id")
+  campaignId    String   @map("campaign_id") @db.Uuid
+  expiresAt     DateTime @map("expires_at") @db.Timestamptz(6)
+
+  @@map("pending_moderation_rejects")
+}
+
+model OnchainEvent {
+  id           BigInt   @id @default(autoincrement())
+  contractAddr String   @map("contract_addr") @db.VarChar(70)
+  eventType    String   @map("event_type") @db.VarChar(50)
+  txHash       String   @map("tx_hash") @db.VarChar(70)
+  lt           BigInt
+  blockSeqno   BigInt   @map("block_seqno")
+  payload      Json
+  ingestedAt   DateTime @default(now()) @map("ingested_at") @db.Timestamptz(6)
+
+  @@unique([txHash, lt], map: "onchain_events_tx_hash_lt_key")
+  @@index([contractAddr, eventType], map: "idx_events_contract")
+  @@map("onchain_events")
+}
+
+model IndexerCursor {
+  contractAddr String   @id @map("contract_addr") @db.VarChar(70)
+  lastLt       BigInt   @default(0) @map("last_lt")
+  lastTxHash   String?  @map("last_tx_hash") @db.VarChar(70)
+  updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("indexer_cursors")
+}
+
+model ChannelBinding {
+  id                 String   @id @default(uuid()) @db.Uuid
+  userId             String   @map("user_id") @db.Uuid
+  channelId          BigInt   @map("channel_id")
+  channelUsername    String?  @map("channel_username") @db.VarChar(50)
+  channelName        String?  @map("channel_name") @db.VarChar(255)
+  channelSubscribers Int?     @map("channel_subscribers")
+  userRole           String   @map("user_role") @db.VarChar(20)
+  botIsAdmin         Boolean  @default(false) @map("bot_is_admin")
+  verifiedAt         DateTime @default(now()) @map("verified_at") @db.Timestamptz(6)
+  lastCheckAt        DateTime @default(now()) @map("last_check_at") @db.Timestamptz(6)
+  isValid            Boolean  @default(true) @map("is_valid")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@unique([userId, channelId])
+  @@index([channelId], map: "idx_channel_bindings_channel")
+  @@map("channel_bindings")
+}
+
+model ChannelAutopost {
+  id         String   @id @default(uuid()) @db.Uuid
+  campaignId String   @map("campaign_id") @db.Uuid
+  channelId  BigInt   @map("channel_id")
+  eventType  String   @map("event_type") @db.VarChar(30)
+  messageId  BigInt?  @map("message_id")
+  postedAt   DateTime @default(now()) @map("posted_at") @db.Timestamptz(6)
+
+  campaign Campaign @relation(fields: [campaignId], references: [id])
+
+  @@index([campaignId, postedAt], map: "idx_autoposts_campaign")
+  @@index([channelId, postedAt], map: "idx_autoposts_channel")
+  @@map("channel_autoposts")
+}
+
+model ExpenseReport {
+  id                 String    @id @default(uuid()) @db.Uuid
+  campaignId         String    @unique @map("campaign_id") @db.Uuid
+  creatorId          String    @map("creator_id") @db.Uuid
+  status             String    @default("pending_review") @db.VarChar(30)
+  photos             String[]  @default([])
+  comment            String?   @db.VarChar(2000)
+  moderatedBy        String?   @map("moderated_by") @db.Uuid
+  moderationNote     String?   @map("moderation_note")
+  ratingDelta        Int       @default(0) @map("rating_delta") @db.SmallInt
+  revision           Int       @default(1) @db.SmallInt
+  aiDetectionResults Json?     @map("ai_detection_results") @db.JsonB
+  createdAt          DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  reviewedAt         DateTime? @map("reviewed_at") @db.Timestamptz(6)
+  reminderSentAt     DateTime? @map("reminder_sent_at") @db.Timestamptz(6)
+
+  campaign  Campaign @relation(fields: [campaignId], references: [id])
+  creator   User     @relation("ExpenseReportCreator", fields: [creatorId], references: [id])
+  moderator User?    @relation("ExpenseReportModerator", fields: [moderatedBy], references: [id])
+
+  @@index([creatorId], map: "idx_expense_reports_creator")
+  @@index([status], map: "idx_expense_reports_status")
+  @@map("expense_reports")
+}
+
+model AdminAuditLog {
+  id         BigInt   @id @default(autoincrement())
+  actorId    String   @map("actor_id") @db.Uuid
+  action     String   @db.VarChar(50)
+  targetType String   @map("target_type") @db.VarChar(30)
+  targetId   String   @map("target_id") @db.VarChar(50)
+  details    Json?
+  env        String   @db.VarChar(10)
+  ipAddress  String?  @map("ip_address") @db.VarChar(50)
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([actorId], map: "idx_admin_audit_actor")
+  @@index([targetType, targetId], map: "idx_admin_audit_target")
+  @@index([createdAt], map: "idx_admin_audit_created")
+  @@map("admin_audit_log")
+}
+
+model RuntimeSetting {
+  key       String   @id @db.VarChar(100)
+  value     Json
+  updatedBy String?  @map("updated_by") @db.Uuid
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("runtime_settings")
+}

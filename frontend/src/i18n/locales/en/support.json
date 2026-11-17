@@ -1,0 +1,19 @@
+{
+  "maxPhotos": "Maximum {{count}} screenshots",
+  "uploadError": "Failed to upload photo",
+  "sent": "Message sent. Thank you!",
+  "sendError": "Failed to send message",
+  "back": "Back",
+  "title": "Report a problem",
+  "descriptionLabel": "Describe the problem",
+  "descriptionPlaceholder": "What happened?",
+  "minChars": "Minimum 5 characters",
+  "screenshots": "Screenshots",
+  "screenshotsLimit": "(up to {{count}})",
+  "screenshotAlt": "Screenshot {{index}}",
+  "loading": "Loading...",
+  "addScreenshot": "Add screenshot",
+  "replyHint": "If you want support to reply, allow Telegram users outside your contacts to message you.",
+  "sending": "Sending...",
+  "send": "Send"
+}

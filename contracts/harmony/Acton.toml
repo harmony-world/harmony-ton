@@ -1,0 +1,48 @@
+[package]
+name = "harmony"
+description = "Harmony.World TON smart contracts — escrow, factory, SBT receipts, KYC verifier"
+version = "0.1.0"
+license = "MIT"
+
+[toolchain]
+acton = "1.1.0"
+
+[contracts.HarmonyMaster]
+display-name = "HarmonyMaster"
+src = "contracts/HarmonyMaster.tolk"
+depends = []
+
+[contracts.HarmonyCampaign]
+display-name = "HarmonyCampaign"
+src = "contracts/HarmonyCampaign.tolk"
+depends = []
+
+[contracts.HarmonyDonationNFT]
+display-name = "HarmonyDonationNFT"
+src = "contracts/HarmonyDonationNFT.tolk"
+depends = []
+
+[contracts.HarmonyVerifier]
+display-name = "HarmonyVerifier"
+src = "contracts/HarmonyVerifier.tolk"
+depends = []
+
+[test]
+
+[fmt]
+width = 100
+ignore = []
+
+[scripts]
+deploy-emulation  = "acton script scripts/deploy.tolk"
+deploy-testnet    = "acton script scripts/deploy.tolk --net testnet"
+smoke-test        = "acton script scripts/smoke-test.tolk --net testnet"
+
+[import-mappings]
+acton     = ".acton"
+contracts = "contracts"
+gen       = "gen"
+tests     = "tests"
+wrappers  = "wrappers"
+
+# Acton.toml reference: https://ton-blockchain.github.io/acton/internal notes

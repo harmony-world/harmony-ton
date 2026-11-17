@@ -1,0 +1,168 @@
+{
+  "page": {
+    "sectionsLabel": "Profile sections",
+    "verification": "Verification",
+    "myCampaigns": "My campaigns",
+    "myDonations": "My donations",
+    "settings": "Profile settings",
+    "userFallback": "User",
+    "openTelegramProfile": "Open {{username}} profile in Telegram",
+    "loadError": "Could not load profile"
+  },
+  "stats": {
+    "donated": "Donated",
+    "campaigns": "Campaigns",
+    "joined": "With us since"
+  },
+  "share": {
+    "sectionLabel": "Public profile sharing",
+    "button": "Share public profile",
+    "publicHint": "Opens your public profile page",
+    "privateHint": "Enable public profile in settings first",
+    "publicProfileText": "{{name}}'s Harmony profile: {{link}}",
+    "copied": "Link copied",
+    "error": "Could not open sharing"
+  },
+  "kyc": {
+    "pendingLabel": "KYC 0 · Under review",
+    "pendingChip": "Under review",
+    "rejectedLabel": "KYC 0 · Rejected",
+    "rejectedChip": "Rejected",
+    "notStartedLabel": "KYC 0 · Not verified",
+    "notStartedChip": "Not passed",
+    "ariaLabel": "Verification status: {{label}}"
+  },
+  "donorLevel": {
+    "level": "Lv. {{level}}",
+    "toNext": "To {{name}} level",
+    "maxLevel": "Maximum level",
+    "passed": "Level passed",
+    "current": "Current level · {{amount}}",
+    "currentWithNext": "Current level · {{amount}} / {{nextAmount}}",
+    "locked": "Donate from {{amount}} to unlock",
+    "close": "Close"
+  },
+  "activity": {
+    "expenseReport": {
+      "approved": "✓ Report",
+      "pending": "⏳ Report",
+      "rejected": "✗ Report",
+      "revision": "✏️ Report",
+      "missing": "No report"
+    },
+    "status": {
+      "expiredNoDonations": "No funds received",
+      "expiredPartial": "Expired",
+      "fundraising": "Fundraising",
+      "deploying": "Deploying to blockchain",
+      "deployFailed": "Deploy failed",
+      "needsManualReconcile": "Needs reconciliation",
+      "pendingModeration": "Under moderation",
+      "approved": "Approved",
+      "active": "Fundraising",
+      "suspended": "Paused",
+      "completed": "Completed",
+      "frozen": "Frozen",
+      "refunding": "Refunds",
+      "refunded": "Refunded",
+      "rejected": "Rejected"
+    },
+    "tabs": {
+      "active": "Active",
+      "completed": "Completed",
+      "ariaLabel": "Campaign status"
+    },
+    "donorsShort": "{{count}} donors",
+    "yourDonation": "Your donation",
+    "donation": "Donation"
+  },
+  "public": {
+    "title": "Profile",
+    "notFound": "Profile not found or private",
+    "campaigns": "Campaigns",
+    "campaignsEmptyTitle": "No public campaigns yet",
+    "campaignsEmptyText": "Campaigns that passed moderation and are open for fundraising will appear here.",
+    "donationsTitle": "Donation history",
+    "donationsEmptyTitle": "No public donations yet",
+    "donationsEmptyText": "Anonymous donations are not shown in public history.",
+    "showMore": "Show more"
+  },
+  "verification": {
+    "title": "Verification",
+    "connectWallet": "Connect wallet",
+    "goToKyc": "Go to KYC {{level}}",
+    "createCampaign": "Create campaign",
+    "returnToProfile": "Return to profile",
+    "contactSupport": "Contact support",
+    "tryAgain": "Try again",
+    "start": "Start verification",
+    "approvedTitle": "KYC {{level}} verified",
+    "maxTitle": "Maximum personal verification",
+    "pendingTitle": "Review in progress",
+    "errorTitle": "Error",
+    "supportTitle": "Support needed",
+    "rejectedTitle": "Verification failed",
+    "connectWalletTitle": "Connect wallet first",
+    "confirmIdentityTitle": "Confirm identity",
+    "nextStepDescription": "Next step KYC {{level}}.",
+    "maxDescription": "You completed the personal KYC path. Organization review is handled separately.",
+    "pendingDescription": "This usually takes up to 2 minutes. We will notify you when the review is complete.",
+    "rejectedDescription": "Check the rejection reason. If another attempt is available, you can pass verification again.",
+    "walletDescription": "KYC 1 is confirmed automatically after connecting a TON wallet.",
+    "identityDescription": "This is required to create campaigns and receive payouts.",
+    "reason": "Reason",
+    "levels": "KYC levels",
+    "later": "Later",
+    "pass": "Pass",
+    "unavailable": {
+      "3": "Address verification will be available later.",
+      "4": "Enhanced verification will be available later.",
+      "5": "Organization verification will be available later."
+    },
+    "trustScoreText": "KYC 3 and higher adds Trust Score. The higher the level and the cleaner the campaign reporting, the clearer the profile is for donors.",
+    "dataProcessor": "Who processes data",
+    "sumsubProcesses": "checks documents through a secure channel.",
+    "harmonyReceives": "receives only the review result and does not store documents."
+  },
+  "campaigns": {
+    "title": "My campaigns",
+    "emptyTitle": "No campaigns yet",
+    "emptyText": "Create your first campaign and tell who needs help.",
+    "create": "Create campaign",
+    "completedEmptyTitle": "No completed campaigns yet",
+    "activeEmptyTitle": "No active campaigns yet",
+    "completedEmptyText": "When a campaign is completed, it will appear here.",
+    "activeEmptyText": "Created and active campaigns will be collected in this tab."
+  },
+  "donations": {
+    "title": "My donations",
+    "emptyTitle": "No donations yet",
+    "emptyText": "Find a campaign in the feed and support someone who needs help.",
+    "openFeed": "Open feed"
+  },
+  "settings": {
+    "title": "Profile settings",
+    "profileSection": "Profile",
+    "publicProfile": "Public profile",
+    "visible": "Visible to other users",
+    "hidden": "Hidden from other users",
+    "publicProfileAria": "Public profile",
+    "telegramStatus": "Show status in Telegram",
+    "telegramStatusAria": "Show status in Telegram",
+    "hiddenStatus": "Hidden",
+    "premiumOnly": "Telegram Premium only",
+    "badgesPreparing": "Soon: preparing HARMONY badges",
+    "privacyError": "Failed to update profile privacy.",
+    "emojiPermissionDenied": "Emoji status permission was not granted.",
+    "statusError": "Failed to update status.",
+    "premiumHint": "The feature is available to Telegram Premium users. A badge with your HARMONY level will appear next to your name.",
+    "preparingHint": "We are preparing the HARMONY badge set. Once it is connected, your level will appear next to your name in Telegram.",
+    "readyHint": "Your current level will appear next to your name in Telegram when this integration is enabled.",
+    "supportSection": "Support",
+    "reportProblem": "Report a problem",
+    "legalSection": "Legal"
+  },
+  "common": {
+    "back": "Back"
+  }
+}

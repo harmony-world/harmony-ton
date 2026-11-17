@@ -1,0 +1,34 @@
+diff --git a/node_modules/@tonconnect/sdk/lib/cjs/index.cjs b/node_modules/@tonconnect/sdk/lib/cjs/index.cjs
+index 4c23872..5ec6851 100644
+--- a/node_modules/@tonconnect/sdk/lib/cjs/index.cjs
++++ b/node_modules/@tonconnect/sdk/lib/cjs/index.cjs
+@@ -3452,6 +3452,12 @@ class BridgeConnectionStorage {
+     actualizeBridgeConnection(connection) {
+         return __awaiter(this, void 0, void 0, function* () {
+             try {
++                // ton-connect/sdk#603: Telegram's built-in wallet reports device.appName
++                // "gramwallet", the app_name of a different wallet. Looking it up by that name moves the
++                // restored session to Gram Wallet's bridge and transactions never reach Telegram.
++                if (connection.session.bridgeUrl === 'https://tonbridge.telegram.org') {
++                    return connection;
++                }
+                 const appName = connection.connectEvent.payload.device.appName;
+                 const wallet = yield this.walletsListManager.getRemoteWallet(appName);
+                 if (wallet.bridgeUrl === connection.session.bridgeUrl) {
+diff --git a/node_modules/@tonconnect/sdk/lib/esm/index.mjs b/node_modules/@tonconnect/sdk/lib/esm/index.mjs
+index 6ac8afe..03dbde7 100644
+--- a/node_modules/@tonconnect/sdk/lib/esm/index.mjs
++++ b/node_modules/@tonconnect/sdk/lib/esm/index.mjs
+@@ -3449,6 +3449,12 @@ class BridgeConnectionStorage {
+     actualizeBridgeConnection(connection) {
+         return __awaiter(this, void 0, void 0, function* () {
+             try {
++                // ton-connect/sdk#603: Telegram's built-in wallet reports device.appName
++                // "gramwallet", the app_name of a different wallet. Looking it up by that name moves the
++                // restored session to Gram Wallet's bridge and transactions never reach Telegram.
++                if (connection.session.bridgeUrl === 'https://tonbridge.telegram.org') {
++                    return connection;
++                }
+                 const appName = connection.connectEvent.payload.device.appName;
+                 const wallet = yield this.walletsListManager.getRemoteWallet(appName);
+                 if (wallet.bridgeUrl === connection.session.bridgeUrl) {
