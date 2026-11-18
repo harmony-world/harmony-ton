@@ -25,6 +25,8 @@ That's the whole flow. The author withdraws straight from the contract. Nobody i
 
 ## 👀 See it in action
 
+**Widget availability.** Telegram has currently disabled chat widgets on its side. The demos below show HARMONY's built-in widget support: once Telegram re-enables widgets, they will be available in HARMONY too. Until then, the bot opens the Mini App, where you can still donate.
+
 <table>
 <tr>
 <td align="center" valign="top" width="33%"><img src="assets/demo/donate.gif" width="260" alt="Donating from the campaign card in the chat with the bot"><br><b>Donate right from the chat</b><br><sub>Pick an amount and an optional tip, confirm in Telegram Wallet.</sub></td>
